@@ -52,7 +52,7 @@ const Signin = () => {
   }
    
   try {
-     const result = await axios.post("http://localhost:5000/signin",formData);
+     const result = await axios.post(`${import.meta.env.VITE_SERVER_URL}/signin`,formData);
      if(result.data.message === "success") {
       login(result.data.user);
       alert("Login successfully");

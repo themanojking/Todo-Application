@@ -27,7 +27,7 @@ function Home() {
 
   const fetchNotes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/getnotes", {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/getnotes`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
           }
@@ -42,7 +42,7 @@ function Home() {
   const addNote = async (title, description) => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/addnotes",
+        `${import.meta.env.VITE_SERVER_URL}/addnotes`,
         { title, description },
         {
           headers: {
@@ -64,8 +64,9 @@ function Home() {
 
   const editNote = async (title, description) => {
     try {
+
       const result = await axios.put(
-        `http://localhost:5000/updatenotes/${currentNote._id}`,
+        `${import.meta.env.VITE_SERVER_URL}/updatenotes/${currentNote._id}`,
         { title, description },
         {
           headers: {
@@ -87,7 +88,7 @@ function Home() {
   const deleteNote = async (id) => {
     try {
       const result = await axios.delete(
-        `http://localhost:5000/deletenotes/${id}`,
+        `${import.meta.env.VITE_SERVER_URL}/deletenotes/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

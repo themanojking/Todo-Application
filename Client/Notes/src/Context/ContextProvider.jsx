@@ -20,7 +20,7 @@ const ContextProvider = ({ children }) => {
       if (!token) return; // avoid request without token
 
       try {
-        const { data } = await axios.get("http://localhost:5000/verify", {
+        const { data } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/verify`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

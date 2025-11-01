@@ -52,7 +52,8 @@ const SignupPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validate()) {
-      axios.post("http://localhost:5000/signup", formData)
+      // "http://localhost:5000/signup"
+      axios.post(`${import.meta.env.VITE_SERVER_URL}/signup`, formData)
       .then(() => {
         // console.log(result);
         navigate("/signin");
