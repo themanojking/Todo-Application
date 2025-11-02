@@ -8,7 +8,8 @@ dotenv.config();
 
 const corsOptions = {
     origin: process.env.APPLICATION_URL,
-    methods: `GET,POST,PUT,DELETE`
+    methods: ["GET","POST","PUT","DELETE"],
+    credentials: true
 }
 const app = express();
 app.use(cors(corsOptions));
