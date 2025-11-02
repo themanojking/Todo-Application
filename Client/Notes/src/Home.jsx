@@ -33,9 +33,10 @@ function Home() {
           }
       });
      
-      setNotes(data.notes);
+      setNotes(data.notes || []);
     } catch (error) {
       console.log(error);
+      setNotes([]);
     }
   };
 

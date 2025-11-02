@@ -15,6 +15,8 @@ const SignupPage = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  console.log(import.meta.env.VITE_SERVER_URL);
+
   //handle change input
   const handleChange = (e) => {
     const {name,value,type,checked} = e.target;

@@ -7,7 +7,7 @@ import dotenv from "dotenv"
 dotenv.config();
 
 const corsOptions = {
-    origin: process.env.APPLICATION_URL,
+    origin: [ process.env.APPLICATION_URL, "http://localhost:5173" ],
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true
 }
