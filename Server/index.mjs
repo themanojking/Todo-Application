@@ -19,8 +19,8 @@ const PORT = 5000;
 
 
 mongoose.connect(process.env.MONGODB_URI ,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000
 })
 .then(()=> console.log("DB Connected"))
 .catch((err)=> console.log(`Error: ${err}`));
