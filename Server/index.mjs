@@ -11,12 +11,6 @@ const corsOptions = {
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true
 }
-const app = express();
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(routers);
-const PORT = 5000;
-
 
 mongoose.connect(process.env.MONGODB_URI ,{
   serverSelectionTimeoutMS: 5000,
@@ -24,6 +18,15 @@ mongoose.connect(process.env.MONGODB_URI ,{
 })
 .then(()=> console.log("DB Connected"))
 .catch((err)=> console.log(`Error: ${err}`));
+
+const app = express();
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(routers);
+const PORT = 5000;
+
+
+
 
 app.get("/", (req,res) => {
    res.send({msg: "Root"});
