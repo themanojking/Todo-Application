@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI ,{
 
 const app = express();
 app.use(cors(corsOptions));
-app.options("*",cors(corsOptions));
+app.options(/.*/,cors(corsOptions));
 app.use(express.json());
 app.use(routers);
 const PORT = 5000;
@@ -39,3 +39,6 @@ app.get("/", (req,res) => {
 app.listen(PORT, ()=> {
     console.log(`Server is running on ${PORT}`);
 });
+
+
+export default app;
