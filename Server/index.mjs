@@ -7,7 +7,7 @@ import dotenv from "dotenv"
 dotenv.config();
 
 const corsOptions = {
-    origin: [ process.env.APPLICATION_URL, "http://localhost:5173" ],
+    origin: [ process.env.APPLICATION_URL, "https://todo-client-tan-theta.vercel.app" ],
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true
 }
